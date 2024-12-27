@@ -8,6 +8,6 @@ try:
     while True:
         bus.send(attack_msg)
         print(f"Attacker sent: {attack_msg}")
-        time.sleep(0.01)  # Send message timed to overlap victim
+        time.sleep(0.005)  # Send message timed to overlap victim
 except KeyboardInterrupt:
     print("Attacker stopped.")
