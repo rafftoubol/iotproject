@@ -1,6 +1,6 @@
 import socket
 import struct
-
+import can
 # Define CAN interface
 CAN_INTERFACE = "vcan0"
 
@@ -22,7 +22,9 @@ try:
         if can_id & socket.CAN_ERR_FLAG:
             print(f"[ERROR] CAN Error Frame: CAN ID {hex(can_id)}")
         else:
-            print(f"[MESSAGE] CAN ID: {hex(can_id)}, Data: {data}")
+            print(f"[MESSAGE] CAN ID: {hex(can_id)}, Data: {list(data) if data else 'None'} CAN Flags: {hex(socket.CAN_EFF_FLAG)}")
 
 except KeyboardInterrupt:
     print("Monitoring stopped.")
+    
+    
